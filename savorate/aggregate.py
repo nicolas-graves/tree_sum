@@ -53,7 +53,7 @@ def get_dicname_and_other_levels(
 
 
 def df_aggregate(
-    frame: pd.DataFrame,
+    frame: pd.Series,
     tree: Tree,
     name: str,
     region: Optional[str] = None,

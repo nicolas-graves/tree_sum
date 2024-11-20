@@ -64,30 +64,28 @@ def test_df_aggregate_siec(raw_eb):
     A, checks = raw_eb
     B = A.copy()
 
-    # computed
-    C = df_aggregate(A, checks["siec"], "TOTAL")
-    np.testing.assert_almost_equal(
+    expected = (
         B.loc[idx[:, node_names(checks["siec"].children("TOTAL")), :, :]]
         .groupby(level=["nrg_bal", "unit", "geo"])
         .sum()
-        .to_numpy(),
-        C.to_numpy(),
+        .to_numpy()
     )
+    computed_from_series = df_aggregate(A, checks["siec"], "TOTAL")
+    np.testing.assert_almost_equal(expected, computed_from_series.to_numpy())
 
 
 def test_df_aggregate_nrg_bal(raw_eb):
     A, checks = raw_eb
     B = A.copy()
 
-    # computed
-    C = df_aggregate(A, checks["nrg_bal"], "AFC")
-    np.testing.assert_almost_equal(
+    expected = (
         B.loc[idx[node_names(checks["nrg_bal"].children("AFC")), :, :, :]]
         .groupby(level=["siec", "unit", "geo"])
         .sum()
-        .to_numpy(),
-        C.to_numpy(),
+        .to_numpy()
     )
+    computed_from_series = df_aggregate(A, checks["nrg_bal"], "AFC")
+    np.testing.assert_almost_equal(expected, computed_from_series.to_numpy())
 
 
 def test_total_aggregate_siec(raw_eb):
