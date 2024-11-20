@@ -78,7 +78,7 @@ def df_aggregate(
     return pd.Series(aggregate[aggregate.columns[0]], index=aggregate.index)
 
 
-def total_aggregate(frame, tree: Tree, region=slice(None)):
+def total_aggregate(frame: pd.Series, tree: Tree, region=slice(None)):
     """Aggregate all keys from tree in order."""
     aggregation_order = list(
         reversed(
