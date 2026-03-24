@@ -1,6 +1,6 @@
 import pytest
 from treelib import Tree
-import savorate.tree as stree
+import tree_sum.tree as stree
 
 
 @pytest.fixture

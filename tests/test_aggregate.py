@@ -5,11 +5,11 @@ import pytest
 import itertools
 from functools import partial, reduce
 from treelib import Tree, Node
-from savorate.tree import (
+from tree_sum.tree import (
     dict_to_tree,
     node_names,
 )
-from savorate.aggregate import (
+from tree_sum.aggregate import (
     df_aggregate,
     total_aggregate,
     nested_aggregate,
