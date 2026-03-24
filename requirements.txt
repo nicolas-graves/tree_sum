@@ -3,4 +3,4 @@ pandas
 pandas-flavor
 pytest
 toolz
--e lib/treelib
+treelib
